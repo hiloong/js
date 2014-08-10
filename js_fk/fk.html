@@ -1,0 +1,75 @@
+<!Doctype html>
+<html>
+    <head>      
+        
+        <!--
+        -->
+        <script type="text/javascript" src="http://libs.baidu.com/jquery/1.8.3/jquery.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js" type="text/javascript"><\/script>');
+</script>
+        
+
+        <script>
+            $.holdReady(true);
+            $.getScript("fk.js", function() {
+                $.holdReady(false);
+            });
+
+            $(function() {
+                init();
+                down();
+                
+                $(window).keypress(function(e) {
+                    draw_u(f_now, 0);
+                    switch (e.keyCode) {
+                        case 97:
+                            if(move_able_l(f_now)) f_now.dx = f_now.dx - 1;
+                            break;
+                        case 100:
+                            if(move_able_r(f_now)) f_now.dx = f_now.dx + 1; 
+                            break;
+                        case 115:
+                            if(move_able_d(f_now)) f_now.dy = f_now.dy + 1;
+                            break;
+                        case 32:
+                        case 13:
+
+                            if(change_able(f_now))
+                                ch_u(f_now);
+                            break;
+                    }
+
+                    draw_u(f_now, 1);
+                });
+            });
+
+
+
+
+        </script>
+
+        <script>
+<!---->
+            function f() {
+                this.x = 1;
+                this.y = 2;
+            }
+
+
+
+<!----->
+        </script>
+
+
+        <style>
+            div { margin: 0}
+            #map{ margin: 0 auto;  margin-top: 50px;}
+        </style>
+    </head>
+    <body>
+        <!-- UY BEGIN -->
+
+<!-- UY END -->
+    </body>
+</html>
